@@ -1,4 +1,5 @@
-Decentralized Crowdfunding Platform with Refundable Investments
+Decentralized Crowdfunding Platform with Refundable Investments**
+
 Overview
 The Decentralized Crowdfunding Platform is a blockchain-based application designed to revolutionize the crowdfunding ecosystem by providing transparent, milestone-based funding with a built-in refund mechanism. This platform ensures that project creators only receive funds as they meet pre-defined project milestones, and investors are refunded a portion of their contributions if milestones are missed. By leveraging the power of decentralized finance (DeFi), privacy-preserving technology, and stablecoin transactions, the platform ensures a secure, trustworthy, and transparent crowdfunding experience.
 
