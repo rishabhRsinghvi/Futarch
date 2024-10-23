@@ -148,7 +148,7 @@ const InvestorDashboard = () => {
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Privacy Settings</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Your investment data is protected by Calimero's privacy technology.
+              Your investment data is protected by Calimero&apos;s privacy technology.
             </p>
             <Button variant="outline" size="sm" className="w-full">
               Manage Privacy Settings

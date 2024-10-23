@@ -97,7 +97,7 @@ const ProjectDetail = () => {
             <div className="border-t pt-6 mt-6">
               <h3 className="text-lg font-semibold mb-4">Data Privacy</h3>
               <p className="text-gray-600 text-sm">
-                Your investment data is protected via Calimero's advanced privacy technology. 
+                Your investment data is protected via Calimero&apos;s advanced privacy technology. 
                 Learn more about our security measures.
               </p>
             </div>

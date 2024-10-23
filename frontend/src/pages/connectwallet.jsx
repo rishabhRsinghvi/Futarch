@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { Button } from '../components/ui/Button';
+import { connect, keyStores, WalletConnection } from 'near-api-js';
 
 const ConnectWallet = () => {
   const [connecting, setConnecting] = useState(false);
+  const [connectedAccount, setConnectedAccount] = useState('');
+  const [walletConnection, setWalletConnection] = useState(null);
 
+  // Define wallet providers
   const walletProviders = [
     {
       name: "NEAR Wallet",
@@ -15,7 +19,14 @@ const ConnectWallet = () => {
         </svg>
       ),
       description: "Connect using NEAR Wallet",
-      recommended: true
+      recommended: true,
+      nearConfig: {
+        networkId: 'testnet',
+        keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+        nodeUrl: 'https://rpc.testnet.near.org',
+        walletUrl: 'https://wallet.testnet.near.org',
+        helperUrl: 'https://helper.testnet.near.org',
+      }
     },
     {
       name: "MyNearWallet",
@@ -26,7 +37,14 @@ const ConnectWallet = () => {
           <path d="M12 8V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       ),
-      description: "Connect using MyNearWallet"
+      description: "Connect using MyNearWallet",
+      nearConfig: {
+        networkId: 'testnet',
+        keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+        nodeUrl: 'https://rpc.testnet.near.org',
+        walletUrl: 'https://wallet.testnet.near.org',
+        helperUrl: 'https://helper.testnet.near.org',
+      }
     },
     {
       name: "Sender Wallet",
@@ -36,17 +54,44 @@ const ConnectWallet = () => {
           <path d="M3 7L12 13L21 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       ),
-      description: "Connect using Sender"
+      description: "Connect using Sender",
+      nearConfig: {
+        networkId: 'testnet',
+        keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+        nodeUrl: 'https://rpc.testnet.near.org',
+        walletUrl: 'https://wallet.testnet.near.org',
+        helperUrl: 'https://helper.testnet.near.org',
+      }
     }
   ];
 
-  const handleConnect = (providerName) => {
+  const handleConnect = async (provider) => {
     setConnecting(true);
-    // Wallet connection logic would go here
-    setTimeout(() => {
-      setConnecting(false);
-    }, 2000);
+  
+    try {
+      const near = await connect(provider.nearConfig);
+  
+      // Pass 'my-dapp' as the appKeyPrefix to WalletConnection
+      const walletConnection = new WalletConnection(near, "my-dapp");
+      setWalletConnection(walletConnection);
+  
+      if (walletConnection.isSignedIn()) {
+        setConnectedAccount(walletConnection.getAccountId());
+        console.log("Connected:", walletConnection.getAccountId());
+      } else {
+        // Specify the contract ID when requesting sign-in
+        await walletConnection.requestSignIn({
+          contractId: 'your-contract-id.testnet',  // Replace with your actual contract ID
+        });
+      }
+    } catch (error) {
+      console.error("Failed to connect wallet:", error);
+    }
+  
+    setConnecting(false);
   };
+  
+  
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -85,7 +130,7 @@ const ConnectWallet = () => {
                     variant="primary"
                     size="sm"
                     disabled={connecting}
-                    onClick={() => handleConnect(provider.name)}
+                    onClick={() => handleConnect(provider)}
                   >
                     {connecting ? 'Connecting...' : 'Connect'}
                   </Button>
