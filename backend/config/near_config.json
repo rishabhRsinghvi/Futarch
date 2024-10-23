@@ -1,1 +1,6 @@
-
+{
+    "network_id": "default",
+    "node_url": "https://rpc.mainnet.near.org",
+    "wallet_url": "https://wallet.near.org",
+    "helper_url": "https://helper.mainnet.near.org"
+}
