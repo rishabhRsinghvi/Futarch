@@ -1,1 +1,4 @@
-
+{
+    "api_key": "your_quicknode_api_key",
+    "endpoint": "https://your_quicknode_endpoint"
+}
