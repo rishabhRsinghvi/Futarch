@@ -24,7 +24,6 @@ pub struct Milestone {
     pub completed: bool,
 }
 
-// Function to create a new project
 #[near_bindgen]
 impl FundingContract {
     pub fn create_project(&mut self, owner: String) -> u64 {
@@ -33,12 +32,10 @@ impl FundingContract {
         project_id
     }
 
-    // Function to fund a project
     pub fn fund_project(&mut self, project_id: u64, amount: U128) {
         let mut project = self.projects.get(&project_id).expect("Project not found");
         project.total_funds.0 += amount.0;
         self.projects.insert(project_id, project);
     }
 
-    // Other methods for handling milestones and refunds would go here
 }
