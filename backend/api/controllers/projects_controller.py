@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
-from services.blockchain_interactions import create_project, fund_project
+from flask import Blueprint, request, jsonify
+from services.near_interaction import create_project, fund_project
 
-app = Flask(__name__)
+app = Blueprint('projects', __name__)
 
 @app.route('/projects', methods=['POST'])
 def create_new_project():
@@ -14,5 +14,3 @@ def fund_existing_project(project_id):
     data = request.json
     fund_project(project_id, data['amount'])
     return jsonify({"status": "success"}), 200
-
-# More endpoints for projects and milestones can be added here
