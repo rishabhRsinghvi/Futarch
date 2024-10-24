@@ -1,6 +1,6 @@
 {
-    "network_id": "default",
-    "node_url": "https://rpc.mainnet.near.org",
-    "wallet_url": "https://wallet.near.org",
-    "helper_url": "https://helper.mainnet.near.org"
+    "network_id": "testnet",
+    "node_url": "https://rpc.testnet.near.org",
+    "wallet_url": "https://wallet.testnet.near.org",
+    "helper_url": "https://helper.testnet.near.org"
 }
