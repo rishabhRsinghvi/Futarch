@@ -20,7 +20,6 @@ pub struct Milestone {
     pub completed: bool,
 }
 
-// Function to add milestones
 #[near_bindgen]
 impl MilestoneContract {
     pub fn add_milestone(&mut self, project_id: u64, description: String) -> u64 {
@@ -31,7 +30,6 @@ impl MilestoneContract {
         milestone_id
     }
 
-    // Function to mark a milestone as completed
     pub fn complete_milestone(&mut self, project_id: u64, milestone_id: u64) {
         let mut project = self.projects.get(&project_id).expect("Project not found");
         project.milestones[milestone_id as usize].completed = true;
