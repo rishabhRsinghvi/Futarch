@@ -52,10 +52,6 @@ Benefits
 For Investors: Increased trust and security as their investments are safeguarded with milestone-based fund releases and refund guarantees.
 For Project Owners: Access to a global pool of investors with the ability to raise funds in a transparent, accountable way.
 For the Ecosystem: A fully decentralized solution that increases transparency and accountability in crowdfunding, enabling more successful projects and greater trust between investors and project creators.
-Future Enhancements
-Advanced Analytics: In-depth performance insights for both investors and project creators.
-Mobile App: A fully responsive mobile app for easier access to crowdfunding opportunities.
-Token Rewards: Offering tokenized rewards for early-stage investors and community supporters.
 
 ![milestone1](https://github.com/user-attachments/assets/ad9df577-3d67-4485-96cc-c0d43393e32d)
 
